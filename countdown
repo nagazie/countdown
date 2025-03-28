@@ -32,13 +32,8 @@
 
     <script>
         function updateCountdown() {
-            // Pobranie aktualnej daty i godziny użytkownika
+            const departureDate = new Date(2025, 4, 1, 7, 35); // Data i godzina odlotu w lokalnym czasie
             const now = new Date();
-
-            // Utworzenie obiektu daty dla 1 maja 2025, 07:35 czasu polskiego (CEST)
-            const departureDate = new Date(2025, 4 - 1, 1, 7, 35); 
-
-            // Obliczenie różnicy w milisekundach
             const diff = departureDate - now;
 
             if (diff <= 0) {
@@ -52,10 +47,10 @@
             const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             document.getElementById("countdown").innerHTML = 
-                `${days}d ` +
-                `${hours.toString().padStart(2, '0')}h:` +
-                `${minutes.toString().padStart(2, '0')}m:` +
-                `${seconds.toString().padStart(2, '0')}s`;
+                ${days}d  +
+                ${hours.toString().padStart(2, '0')}h: +
+                ${minutes.toString().padStart(2, '0')}m: +
+                ${seconds.toString().padStart(2, '0')}s;
         }
 
         setInterval(updateCountdown, 1000);
