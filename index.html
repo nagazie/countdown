@@ -32,7 +32,8 @@
 
     <script>
         function updateCountdown() {
-            const departureDate = new Date(2025, 4, 1, 7, 35); // Data i godzina odlotu w lokalnym czasie
+            // Ustawienie daty w UTC odpowiadającej 1 maja 2025, 07:35 w Polsce (CEST, UTC+2)
+            const departureDate = new Date(Date.UTC(2025, 4 - 1, 1, 5, 35)); // UTC+0 (Polska to UTC+2 w maju)
             const now = new Date();
             const diff = departureDate - now;
 
